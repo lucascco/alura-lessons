@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div id="about">Tests of Alura about Regular Expression with Java Script</div>
+        <div id="results">
+        </div>
+        <form action="">
+            <h1>4 - Validate form with regexp</h1>
+            <h3>\d+</h3>
+            <input type="text" pattern="\d+">
+            <button type="submit">Enviar</button>
+        </form>
+    </body>
+    <script>
+        var results = [];
+        // Challenge 1
+        var anoMesDia = '2007-12-31';
+        var expReplace = /-/g;
+        var result = {
+            challenge: '1 - replace',
+            target: anoMesDia,
+            exp: expReplace,
+            result: anoMesDia.replace(expReplace, '/')
+        };
+        results.push(result);
+
+        // Challenge 2
+        var csvWrong = '100,200-150,200;20';
+        var expSplit = /[,\-;]/;
+        var values = csvWrong.split(expSplit);
+        result = {
+            challenge: '2 - split',
+            target: csvWrong,
+            exp: expSplit,
+            result: values
+        }
+        results.push(result);
+
+        //Challenge 3
+        var codes = 'A121B12112C12212F12G01';
+        var expMatch = /[A-Za-z]\d+/g;
+        var result = {
+            challenge: '3 - Match',
+            target: codes,
+            exp: expMatch,
+            result: codes.match(expMatch)
+        }
+        results.push(result);
+
+        results.forEach((result) => {
+            var elementTitle = document.createElement("h1");
+            var elementTarget = document.createElement("h2");
+            var elementExp = document.createElement("h3");
+            var elementResult = document.createElement("p");
+            innerContent(elementTitle, result.challenge);
+            innerContent(elementTarget, result.target);
+            innerContent(elementExp, result.exp);
+            innerContent(elementResult, result.result);
+            append(elementTitle);
+            append(elementTarget);
+            append(elementExp);
+        });
+        function innerContent(element, content) {
+            element.innerHTML = content;
+        }
+        function append(element) {
+            document.getElementById('results').appendChild(element);
+        }
+        console.log(results);           
+    </script>
+</html>

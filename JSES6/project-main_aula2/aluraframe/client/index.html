@@ -60,5 +60,18 @@
     </table>
     
 </body>
-<script src="js/index.js"></script>
+<script src="js/app/models/Negociacao.js"></script>
+<script type="text/javascript">
+    let negociacao = new Negociacao(new Date, 3, 9);
+    console.log(negociacao);
+    console.log(negociacao.quantidade);
+    console.log(negociacao.valor);
+    console.log(negociacao.volume);
+    console.log(negociacao.data);
+    let dateWarn = negociacao.data.setDate(negociacao.data.getDate() + 1);
+    console.log(new Date(dateWarn));
+    console.log(negociacao.data);
+    negociacao._valor = 50;
+    console.log(negociacao.valor);    
+</script>
 </html>

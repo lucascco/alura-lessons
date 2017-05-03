@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+    </head>
+    <body>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Endereço</th>
+                    <th>Salário</th>
+                </tr>
+            </thead>
+
+            <tbody class="body">
+
+            <tbody>
+        </table>
+
+        <script>
+            let funcionarios = [
+                {
+                    "nome": "Douglas",
+                    "endereco" : "Rua da esquina, 123",
+                    "salario" : "4500"
+                },
+                {
+                    "nome": "Felipe",
+                    "endereco" : "Rua da virada, 456",
+                    "salario" : "5000"
+                },
+                {
+                    "nome": "Silvio",
+                    "endereco" : "Rua da aresta, 789",
+                    "salario" : "6000"
+                }
+            ];
+            let tbodyTemplate = funcionarios.map(func => `
+                <tr>
+                    <td>${func.nome}</td>
+                    <td>${func.endereco}</td>
+                    <td>${func.salario}</td>
+                <tr>
+            `).join('');
+            console.log(funcionarios, tbodyTemplate);
+            document.querySelector('.body').innerHTML = tbodyTemplate;
+        </script>
+    </body>
+</html>

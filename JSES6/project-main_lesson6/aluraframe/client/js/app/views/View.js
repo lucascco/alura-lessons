@@ -4,7 +4,7 @@ class View {
     }
 
     template(model) {
-        throw new Error('O método template precisa ser instanciado.');
+        throw new Error('O método template precisa ser implementado.');
     }
 
     update(model) {

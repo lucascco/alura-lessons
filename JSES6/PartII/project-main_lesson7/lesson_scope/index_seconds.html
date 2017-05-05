@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Seconds</title>
+    </head>
+    <body>
+        
+    </body>
+    <script>
+        class Relogio {
+
+            constructor() {
+                this._segundos = 0;
+
+                setInterval(() => {
+                    console.log(++this._segundos);
+                }, 1000);
+            }
+        }
+
+        var relogio = new Relogio();
+    </script>
+</html>

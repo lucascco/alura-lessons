@@ -1,0 +1,50 @@
+<html>  
+    <head>  </head>
+    <body>
+        
+    </body>
+    <script>
+        let func = {email: 'abc@abc.com'};
+        var funcProxy = new Proxy(func, {
+            get(target, prop, receiver) {
+                console.log(`armadilha aqui... ${target[prop]}, ${prop}`);
+                return `**${target[prop]}**`;
+                //return '**'+Reflect.get(target, prop, receiver)+'**';
+            },
+            set(target, prop, value, receiver) {
+                console.log(`valor antigo ${target[prop]}`);
+                console.log(`valor novo ${value}`);                
+                return Reflect.set(target, prop, value, receiver);
+            }
+        });
+        console.log(funcProxy.email);
+        funcProxy.email = 'abcde@abc.com.br';
+        class Funcionario {
+
+            constructor(email) {
+                this._email = email;
+            }
+
+            get email() {
+                return this._email;
+            }
+
+            set email(email) {
+                this._email = email;
+            }
+        }
+        let functionario = new Proxy(new Funcionario('abc@ab.com.br'), {
+            get(target, prop, receive) {
+                console.log('Armadilha aqui ' + prop);
+                return Reflect.get(target, prop, receive);
+            },
+            set(target, prop, value, receiver) {
+                console.log(`antes de ser alterada ${target[prop]}`);
+                console.log(`depois de ser alterada ${value}`);                
+                //target[prop] = value;
+                return Reflect.set(target, prop, value, receiver);
+            }
+        });
+        functionario.email = 'emailmod@abc.com.br';
+    </script>
+</html>

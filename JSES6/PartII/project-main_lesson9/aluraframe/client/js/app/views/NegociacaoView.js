@@ -14,7 +14,7 @@ class NegociacaoView extends View {
                 
                 <tbody>
                 </tbody>
-                    ${model.map(neg => `
+                    ${model.lista.map(neg => `
                         <tr>
                             <td>${DateHelper.dataParaTexto(neg.data)}</td>
                             <td>${neg.quantidade}</td>
@@ -25,7 +25,7 @@ class NegociacaoView extends View {
                 <tfoot>
                     <tr>
                         <td colspan="3"></td>
-                        <td>${model.reduce((total, neg) => total + neg.volume, 0.0)}</td>
+                        <td>${model.lista.reduce((total, neg) => total + neg.volume, 0.0)}</td>
                     <tr>
                 </tfoot>
             </table>

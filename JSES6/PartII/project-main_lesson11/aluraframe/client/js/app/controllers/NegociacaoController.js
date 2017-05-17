@@ -29,16 +29,10 @@ class NegociacaoController {
     }
 
     importarNegociacao() {
-        Promise.all([
-            this.negociacaoServer.importarNegociacaoSemana(),
-            this.negociacaoServer.importarNegociacaoAnterior(),
-            this.negociacaoServer.importarNegociacaoAtrasada()    
-        ]).then((negociacoes) => {
-            negociacoes.reduce((arrayFlat, array) => arrayFlat.concat(array),[]).forEach(negociacao => {
-                this.listaNegociacoes.addItem(new Negociacao(
-                    new Date(negociacao.data),
-                    negociacao.quantidade,
-                    negociacao.valor));
+        this.negociacaoServer.importarNegociacoes().then((negociacoes) => {
+            negociacoes.forEach(negociacao => {
+                this.listaNegociacoes
+                    .addItem(new Negociacao(new Date(negociacao.data), negociacao.quantidade, negociacao.valor));
             });
             this.mensagem.texto = 'Negociações importadas com sucesso.'
         }).catch((erro) => {

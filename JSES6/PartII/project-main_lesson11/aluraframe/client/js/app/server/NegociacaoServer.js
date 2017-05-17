@@ -3,6 +3,18 @@ class NegociacaoServer {
         this.httpServer = new HttpServer();
     }
 
+    importarNegociacoes() {
+        return Promise.all([
+            this.importarNegociacaoSemana(),
+            this.importarNegociacaoAnterior(),
+            this.importarNegociacaoAtrasada()
+        ]).then((negociacoes) => {
+            return negociacoes.reduce((arrayFlat, array) => arrayFlat.concat(array),[]);
+        }).catch((erro) => {
+            throw new Error(erro);
+        });
+    }
+
     importarNegociacaoSemana() {
         return this.httpServer.get('negociacoes/semana');
     }

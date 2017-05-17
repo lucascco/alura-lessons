@@ -25,7 +25,7 @@ class NegociacaoView extends View {
                 <tfoot>
                     <tr>
                         <td colspan="3"></td>
-                        <td>${model.lista.reduce((total, neg) => total + neg.volume, 0.0)}</td>
+                        <td>${model.getVolumeTotal()}</td>
                     <tr>
                 </tfoot>
             </table>

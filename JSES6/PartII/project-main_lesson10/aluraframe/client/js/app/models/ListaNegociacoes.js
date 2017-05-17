@@ -18,4 +18,8 @@ class ListaNegociacoes {
     get lista() {
         return [].concat(this._lista);
     }
+
+    getVolumeTotal() {
+        return this._lista.reduce((total, negociacao) => negociacao.volume + total, 0);
+    }
 }

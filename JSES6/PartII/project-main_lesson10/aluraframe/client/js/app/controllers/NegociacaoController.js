@@ -28,6 +28,22 @@ class NegociacaoController {
         return negociacao;
     }
 
+    importarNegociacao() {
+        NegociacaoServer.importarNegociacao((error, listaImportada) => {
+            if(error) {
+                this.mensagem.texto = error;              
+                return;
+            }
+            listaImportada.forEach(negociacao => {
+                this.listaNegociacoes.addItem(new Negociacao(
+                    new Date(negociacao.data),
+                    negociacao.quantidade,
+                    negociacao.valor));
+            });
+            this.mensagem.texto = 'Negociações importadas com sucesso.'
+        }, 'negociacoes/semana');
+    }
+
     focusData() {
         this._inputData.focus();
     }

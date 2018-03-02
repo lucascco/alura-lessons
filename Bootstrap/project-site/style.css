@@ -20,3 +20,18 @@
     display: inline-block;
     vertical-align: top;
 }
+
+form {
+    margin-bottom: 0;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    margin-top: 10px;
+    padding: 1em;
+}
+
+footer address:last-child {
+    margin-bottom: 0;
+}

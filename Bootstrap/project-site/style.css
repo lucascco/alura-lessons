@@ -10,3 +10,13 @@
     padding-top: 25px;
     padding-bottom: 25px;
 }
+
+.grupo-radio > .radio:first-child {
+    margin-top: 0;
+}
+
+.grupo-radio, .select-solicitacao {
+    width: 50%;
+    display: inline-block;
+    vertical-align: top;
+}

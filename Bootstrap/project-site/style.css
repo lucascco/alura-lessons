@@ -2,6 +2,35 @@
     padding-top: 20px;
 }
 
+html, boody {
+    height: 100%;
+}
+
+header {
+    background-image: url(img/castelo.jpg);
+    background-size: cover;
+    background-position: top center;
+    height: 100%;
+    position: relative;
+}
+
+.banner-main {
+    width: 80%;
+    border-radius: 8px;
+    padding: 20px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, .5);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: .3s;
+}
+
+.banner-main .title-banner {
+    margin: 0;
+}
+
 .titulo-depoimento {
     background-color: #0275D8;
     color: #fff;
